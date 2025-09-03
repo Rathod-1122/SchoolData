@@ -2,7 +2,11 @@ const express = require('express');
 const mysql = require('mysql');
 const multer = require('multer');
 const path = require('path')
+const dotenv = require('dotenv');
+dotenv.config();
+
 const cors = require('cors');
+
 
 const app = express();
 app.use(cors());
@@ -31,11 +35,11 @@ const upload = multer({ storage: store });
 
 let connectToMySql = () => {
   connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'mydatabases',
-    port: 3306
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
   });
 
   connection.connect((err) => {
@@ -48,7 +52,7 @@ let connectToMySql = () => {
 }
 
 connectToMySql();
-
+// AddSchoolData api
 app.post('/addschooldata', upload.single('image'), (req, res) => {
   const { name, address, city, state, contact, emailId } = req.body;
   const image = req.file ? req.file.filename : null;
@@ -65,6 +69,7 @@ app.post('/addschooldata', upload.single('image'), (req, res) => {
   });
 });
 
+// Show Schools api
 app.get('/showschools', (req, res) => {
   const query = 'SELECT * FROM schools';
   connection.query(query, (error, results) => {

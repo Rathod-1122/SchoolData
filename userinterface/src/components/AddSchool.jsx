@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function AddSchool() {
 
-  // axios.defaults.baseURL = "http://localhost:4000";
+  // axios.defaults.baseURL = "http://localhost:4500";
   let nameRef = useRef();
   let addressRef = useRef();
   let cityRef = useRef();
