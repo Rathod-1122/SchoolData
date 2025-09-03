@@ -32,7 +32,7 @@ function ShowSchools() {
         {schools.map((school, index) => (
           <div className="school-card" key={index}>
             <img
-              src={`http://localhost:4000/schoolImages/${ school.image }`}
+              src={`http://localhost:4500/schoolImages/${ school.image }`}
               alt={school.name}
               className="school-image"
             />

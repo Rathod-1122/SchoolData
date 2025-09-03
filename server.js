@@ -13,8 +13,8 @@ app.use('/schoolImages', express.static('schoolImages'));
 // Code for Deployment
 app.use(express.static(path.join(__dirname, 'userinterface/dist')));
 
-app.listen(4000, () => {
-  console.log("Server is running on port 4000");
+app.listen(4500, () => {
+  console.log("Server is running on port 4500");
 });
 
 let store = multer.diskStorage({
