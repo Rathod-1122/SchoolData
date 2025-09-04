@@ -119,9 +119,10 @@ function AddSchool() {
     // Check if all fields are filled
     if (errors.name === "" || errors.address === "" || errors.city === "" || errors.state === "" || errors.contactNo === "" || errors.image === "" || errors.emailId === "") {
       alert("Please fill all fields");
+      return;
     }//check if all fields are with errors 
     else if (errors.name !== "valid" || errors.address !== "valid" || errors.city !== "valid" || errors.state !== "valid" || errors.contactNo !== "valid" || errors.image !== "valid" || errors.emailId !== "valid") {
-      alert("Please enter a valid  input field value ");
+      alert("Please enter a valid  input field values");
       return;
     }
 
