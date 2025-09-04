@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function ShowSchools() {
 
-  // axios.defaults.baseURL = "http://localhost:4500";
+  axios.defaults.baseURL = "http://localhost:4500";
 
   let [schools, setSchools] = useState([]);
 
